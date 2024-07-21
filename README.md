@@ -1,19 +1,35 @@
-# Mantine Next.js template
+# Plan & Plate
 
-This is a template for [Next.js](https://nextjs.org/) app router + [Mantine](https://mantine.dev/).
-If you want to use pages router instead, see [next-pages-template](https://github.com/mantinedev/next-pages-template).
+Plan and Plate is a meal planning app that allows users to select from recipes, add them to their weekly menu, create shopping lists, and even manage how many leftovers they should have.
 
-## Features
+Not only that, it helps with what I find to be the most difficult part of meal planning - how can I avoid one REALLY long day cooking, and learn to batch cook a couple of times during the week instead. Recipes can be assigned to days and coordinated with one another, making it easier to overlap leftovers and change up your menu. Never eat 4-day-old steamed broccoli again!
 
-This template comes with the following features:
+## Stack
 
-- [PostCSS](https://postcss.org/) with [mantine-postcss-preset](https://mantine.dev/styles/postcss-preset)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Storybook](https://storybook.js.org/)
-- [Jest](https://jestjs.io/) setup with [React Testing Library](https://testing-library.com/docs/react-testing-library/intro)
-- ESLint setup with [eslint-config-mantine](https://github.com/mantinedev/eslint-config-mantine)
+- NextJS
+- Mantine & Styled components
+- Jotai
+- Prisma
+- Supabase
+- Project Roadmap
 
-## npm scripts
+### Phase One: Recipe Viewer and Writer
+
+At this point, there are no users; the app is a repository of sorts for recipes. Scroll through and view recipes, and export to a PDF for download. Feel free to add to the bunch with our Recipe Writer UI.
+
+### Phase Two: Add Users and User Menus
+
+We'll introduce user authentication (probably with NextAuth) and allow users to sign up so they can save and add recipes to their weekly meal plan.
+
+Recipes will become optionally tied to users through a user_id foreign key (so old recipes will just be considered 'platform recipes', which will continue to grow as well).
+
+Export weekly meal plans as a PDF.
+
+### Phase Three: Add Weekly Manager
+
+Users will gain a dashboard to see the recipes they have planned for the week and can drag-and-drop them to different days of the week to plan their cooking schedule.
+
+## yarn scripts
 
 ### Build and dev scripts
 
@@ -35,3 +51,5 @@ This template comes with the following features:
 - `storybook` – starts storybook dev server
 - `storybook:build` – build production storybook bundle to `storybook-static`
 - `prettier:write` – formats all files with Prettier
+
+This project uses a template for [Next.js](https://nextjs.org/) app router + [Mantine](https://mantine.dev/).

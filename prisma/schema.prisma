@@ -1,0 +1,89 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Test {
+  id    Int    @id @default(autoincrement())
+  name  String
+  email String @unique
+}
+
+//* ------------------------------ RECIPES START ----------------------------- *//
+enum Difficulty {
+  EASY
+  MEDIUM
+  HARD
+}
+
+model Recipe {
+  id                String                @id @default(cuid())
+  title             String
+  description       String?
+  content           String? // full, 'blog-like' content
+  summary           String? // shortened summary for quick view 
+  recipeIngredients RecipeIngredient[] // JOIN table for ingredients 
+  steps             Step[]
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt
+  difficulty        Difficulty? // a rating for how hands-on this recipe is - i.e. slow cooker? Long oven time? Or standing and babysitting, or adding many ingredients in a gradual manner 
+  cleanupRating     Int? // a rating for how hard this is to clean up, scale of 1-3
+  prepTime          Int?
+  cookTime          Int?
+}
+
+// Units of measurement for ingredients - we will provide a conversion table
+enum Unit {
+  GRAM
+  KILOGRAM
+  LITER
+  MILLILITER
+  CUP
+  TABLESPOON
+  TEASPOON
+  PIECE
+}
+
+model Ingredient {
+  id                String                @id @default(cuid())
+  name              String
+  recipeIngredients RecipeIngredient[] // JOIN table to recipes 
+}
+
+model RecipeIngredient {
+  id           String                @id @default(cuid())
+  recipe       Recipe     @relation(fields: [recipeId], references: [id])
+  recipeId     String
+  ingredient   Ingredient @relation(fields: [ingredientId], references: [id])
+  ingredientId String
+  quantity     Float
+  unit         Unit
+}
+
+model Conversion {
+  id       String                @id @default(cuid())
+  fromUnit Unit
+  toUnit   Unit
+  factor   Float // conversion factor (multiply by this to convert)
+}
+
+model Step {
+  id       String                @id @default(cuid())
+  number   Int
+  content  String // text content for each step
+  recipe   Recipe @relation(fields: [recipeId], references: [id])
+  recipeId String
+}
+
+//* ------------------------------- RECIPES END ------------------------------ *//

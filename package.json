@@ -1,5 +1,5 @@
 {
-  "name": "mantine-next-template",
+  "name": "plan-and-plate",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -22,10 +22,17 @@
     "@mantine/core": "7.11.2",
     "@mantine/hooks": "7.11.2",
     "@next/bundle-analyzer": "^14.2.4",
+    "@prisma/client": "^5.17.0",
     "@tabler/icons-react": "^3.6.0",
+    "dotenv": "^16.4.5",
+    "jotai": "^2.9.0",
     "next": "14.2.4",
+    "prisma": "^5.17.0",
     "react": "18.3.1",
-    "react-dom": "18.3.1"
+    "react-dom": "18.3.1",
+    "react-icons": "^5.2.1",
+    "react-window": "^1.8.10",
+    "styled-components": "^6.1.12"
   },
   "devDependencies": {
     "@babel/core": "^7.24.7",
@@ -42,6 +49,7 @@
     "@types/jest": "^29.5.12",
     "@types/node": "^20.14.8",
     "@types/react": "18.3.3",
+    "@types/react-window": "^1",
     "@typescript-eslint/eslint-plugin": "^7.13.1",
     "@typescript-eslint/parser": "^7.13.1",
     "babel-loader": "^9.1.3",

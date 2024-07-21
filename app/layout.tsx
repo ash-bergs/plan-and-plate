@@ -1,11 +1,13 @@
 import '@mantine/core/styles.css';
 import React from 'react';
+import { Provider } from 'jotai';
 import { MantineProvider, ColorSchemeScript } from '@mantine/core';
 import { theme } from '../theme';
+import Layout from '@/components/Layout';
 
 export const metadata = {
-  title: 'Mantine Next.js template',
-  description: 'I am using Mantine with Next.js!',
+  title: 'Plan & Plate',
+  description: 'Plan your meals from start to finish.',
 };
 
 export default function RootLayout({ children }: { children: any }) {
@@ -20,7 +22,11 @@ export default function RootLayout({ children }: { children: any }) {
         />
       </head>
       <body>
-        <MantineProvider theme={theme}>{children}</MantineProvider>
+        <Provider>
+          <MantineProvider forceColorScheme="light" theme={theme}>
+            <Layout>{children}</Layout>
+          </MantineProvider>
+        </Provider>
       </body>
     </html>
   );
