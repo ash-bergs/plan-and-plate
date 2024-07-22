@@ -18,7 +18,6 @@ const StyledNavLink = styled((props: CustomNavLinkProps) => <NavLink {...props} 
 
 const Sidebar = () => (
   <Container bg="#ABEDC6" w="100%" h="100%" p="md">
-    {/* eslint-disable-next-line */}
     <StyledNavLink href="/" label="Plan & Plate" leftSection={<BiDish size="33px" />} />
     <StyledNavLink href="/recipes" label="Recipes" leftSection={<FiBook size="33px" />} />
     <StyledNavLink href="/add" label="Write" leftSection={<FiBook size="33px" />} />
