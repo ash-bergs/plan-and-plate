@@ -67,7 +67,7 @@ enum Unit {
 
 model Ingredient {
   id                String             @id @default(cuid())
-  name              String
+  name              String             @unique
   recipeIngredients RecipeIngredient[] // JOIN table to recipes 
 }
 

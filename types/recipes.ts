@@ -46,3 +46,15 @@ export type AddRecipeFormData = {
   // cuisine?: string;
   // category?: string;
 };
+
+// ingredient measurement unit enum mapping
+export enum Unit {
+  GRAM = 'GRAM',
+  KILOGRAM = 'KILOGRAM',
+  LITER = 'LITER',
+  MILLILITER = 'MILLILITER',
+  CUP = 'CUP',
+  TABLESPOON = 'TABLESPOON',
+  TEASPOON = 'TEASPOON',
+  PIECE = 'PIECE',
+}
