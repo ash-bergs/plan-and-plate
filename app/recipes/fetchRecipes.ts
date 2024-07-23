@@ -6,9 +6,9 @@ export async function fetchRecipes() {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
-      'Cache-Control': 'no-store', // Disable caching
+      //'Cache-Control': 'no-store', // Disable caching
     },
-    cache: 'no-store',
+    //cache: 'no-store',
   });
 
   if (!res.ok) {

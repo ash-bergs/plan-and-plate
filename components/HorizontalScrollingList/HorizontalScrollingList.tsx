@@ -1,10 +1,15 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { FixedSizeList as List } from 'react-window';
 import { useAtom } from 'jotai';
 import { recipesAtom } from '@/store';
 import RecipeCard from '../RecipeCard/RecipeCard';
+
+// We're not using this right now - I wanted to deploy this to Vercel and see how setting up prisma there will be
+// So until we come back 🤞 I'm just going to render these all out in a flex
+// there aren't many recipes right now
 
 const HorizontalScrollingList = () => {
   const [recipes] = useAtom(recipesAtom);
@@ -37,7 +42,15 @@ const HorizontalScrollingList = () => {
         const recipe = recipes[index];
         return (
           <div key={index} style={style}>
-            <RecipeCard recipe={recipe} />
+            <Link
+              href={`/recipes/${recipe.id}`}
+              style={{
+                textDecoration: 'none',
+                color: 'black',
+              }}
+            >
+              <RecipeCard recipe={recipe} />
+            </Link>
           </div>
         );
       }}
