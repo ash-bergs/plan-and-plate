@@ -39,7 +39,7 @@ const AddRecipe = () => {
       const result = await res.json();
       return result;
     } catch (error) {
-      return console.error('Error Adding Recipe: ', error);
+      throw new Error('Error Adding Recipe');
     }
   };
 
