@@ -51,7 +51,7 @@ const RecipeRating = ({ difficulty, cleanupRating, totalCookTime }: RecipeRating
 
 export default RecipeRating;
 
-// function takes a number and returns a string
+//TODO: Add better type support - an object? and define some more/better returns here
 const getCookTimeStat = (time: number) => {
   if (time < 60) {
     return 'Less than an hour!';
