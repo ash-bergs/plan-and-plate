@@ -2,7 +2,7 @@ import { Container } from '@mantine/core';
 import RecipeViewer from '@/components/RecipeViewer/RecipeViewer';
 
 // Fetch the recipe data based on the provided ID
-export async function fetchRecipe(id: string) {
+async function fetchRecipe(id: string) {
   const res = await fetch(`http://localhost:3000/api/recipes/${id}`, {
     method: 'GET',
     headers: {

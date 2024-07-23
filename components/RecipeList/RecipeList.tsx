@@ -6,7 +6,7 @@ import { useAtom } from 'jotai';
 import { recipesAtom } from '@/store';
 import RecipeCard from '../RecipeCard/RecipeCard';
 
-const RecipeGrid = () => {
+const RecipeList = () => {
   const [recipes] = useAtom(recipesAtom);
   return (
     <Flex wrap="wrap" gap="16">
@@ -27,4 +27,4 @@ const RecipeGrid = () => {
   );
 };
 
-export default RecipeGrid;
+export default RecipeList;

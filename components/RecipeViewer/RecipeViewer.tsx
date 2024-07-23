@@ -43,10 +43,16 @@ const RecipeViewer = ({ recipe }: RecipeViewerProps) => {
         />
       </Flex>
       {/* Ingredients area */}
-      <Ingredients recipeIngredients={recipeIngredients} />
+      <Flex direction="column" gap="16">
+        <Title size="h2">Ingredients</Title>
+        <Ingredients recipeIngredients={recipeIngredients} />
+      </Flex>
 
       {/* Steps area */}
-      <Steps steps={steps} />
+      <Flex direction="column" gap="16">
+        <Title size="h2">Steps</Title>
+        <Steps steps={steps} />
+      </Flex>
     </Flex>
   );
 };

@@ -7,9 +7,9 @@ const AddRecipesCTA = () => (
     p="lg"
     gap="sm"
     direction="column"
-    c="#252323"
+    c="white"
     w="100%"
-    bg="#FFD151"
+    bg="pink"
     style={{
       borderRadius: '8px',
     }}
