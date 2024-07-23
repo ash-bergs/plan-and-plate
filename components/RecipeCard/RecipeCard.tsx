@@ -1,26 +1,34 @@
 'use client';
 
 import { Center, Text, Group, Flex, Stack } from '@mantine/core';
-import { GiForkKnifeSpoon, GiSaucepan } from 'react-icons/gi';
+import { GiForkKnifeSpoon } from 'react-icons/gi';
 import { Recipe } from '@/types/recipes';
+import CleanupRatingBanner from '@/components/Ratings/CleanupRatingBanner';
+import styled from 'styled-components';
 
 type RecipeCardProps = {
   recipe: Recipe;
 };
 
+const StyledContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+  box-shadow: 2px 4px 5px 0px rgba(0, 0, 0, 0.14);
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: scale(1.03);
+  }
+`;
+
 const RecipeCard = ({ recipe }: RecipeCardProps) => {
   const ingredientsCount = recipe.recipeIngredients.length;
   return (
-    <Flex
-      bd="1px solid pink"
-      direction="column"
-      h="100%"
-      mr="12"
-      style={{
-        borderRadius: '10px',
-      }}
-      justify="space-between"
-    >
+    <StyledContainer>
       <div>
         <Group
           style={{
@@ -72,8 +80,8 @@ const RecipeCard = ({ recipe }: RecipeCardProps) => {
         bg="pink"
         py="10"
         style={{
-          borderBottomLeftRadius: '10px',
-          borderBottomRightRadius: '10px',
+          borderBottomLeftRadius: '8px',
+          borderBottomRightRadius: '8px',
         }}
       >
         <Stack
@@ -101,22 +109,8 @@ const RecipeCard = ({ recipe }: RecipeCardProps) => {
           <Text c="white">{recipe.cookTime}</Text>
         </Stack>
       </Flex>
-    </Flex>
+    </StyledContainer>
   );
 };
 
 export default RecipeCard;
-
-// this component will take a number (integer)
-// and render that many pots in a row
-
-const CleanupRatingBanner = ({ rating }: { rating: number }) => {
-  const totalPots = 5;
-  return (
-    <Flex>
-      {Array.from({ length: totalPots }, (_, index) => (
-        <GiSaucepan key={index} color={index < rating ? 'pink' : 'lightgrey'} size={24} />
-      ))}
-    </Flex>
-  );
-};

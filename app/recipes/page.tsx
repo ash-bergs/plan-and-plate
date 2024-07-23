@@ -3,7 +3,7 @@ import { fetchRecipes } from './fetchRecipes';
 import AddRecipesCTA from '@/components/AddRecipesCTA/AddRecipesCTA';
 import HorizontalScrollingList from '@/components/HorizontalScrollingList/HorizontalScrollingList';
 import RecipesDataLayer from '@/components/DataLayers/RecipesDataLayer';
-
+import RecipeGrid from '@/components/RecipeGrid/RecipeGrid';
 export default async function RecipesListPage() {
   const recipes = await fetchRecipes();
 
@@ -18,7 +18,7 @@ export default async function RecipesListPage() {
           <AddRecipesCTA />
           <Flex direction="column" gap="sm">
             <Title size="h2">Newly Added Recipes</Title>
-            <HorizontalScrollingList />
+            <RecipeGrid />
           </Flex>
         </Flex>
       </RecipesDataLayer>
