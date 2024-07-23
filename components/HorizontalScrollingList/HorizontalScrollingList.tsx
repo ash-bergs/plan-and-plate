@@ -8,7 +8,6 @@ import RecipeCard from '../RecipeCard/RecipeCard';
 
 const HorizontalScrollingList = () => {
   const [recipes] = useAtom(recipesAtom);
-  console.log(recipes);
   const itemSize = 300;
   const [listWidth, setListWidth] = useState(0);
 
